@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.mgorski.articles.viewmodel.ArticlesViewModel" />
+            type="com.mgorski.articles.viewmodel.ArticleCategoriesViewModel" />
     </data>
 
     <LinearLayout
