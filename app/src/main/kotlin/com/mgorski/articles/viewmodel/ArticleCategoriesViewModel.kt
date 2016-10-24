@@ -3,9 +3,10 @@ package com.mgorski.articles.viewmodel
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.mgorski.articles.Logger
+import com.mgorski.articles.R
 import com.mgorski.articles.di.AppComponent
 import com.mgorski.articles.model.ArticleCategory
 import com.mgorski.articles.model.toArticleCategory
@@ -40,7 +41,7 @@ class ArticleCategoriesViewModel {
                     articleCategories.clear()
                     articleCategories.addAll(newArticleCategories)
                 }, { error ->
-                    Log.e("gfgf", error.message, error)
+                    Logger.e(error)
                 })
     }
 
@@ -53,10 +54,10 @@ class ArticleCategoriesViewModel {
                 .subscribe({ response ->
                     articleCategories.add(ArticleCategory(categoryToAdd.get()))
                     categoryToAdd.set("")
-                    Toast.makeText(view.context, "Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(view.context, R.string.success_add_new_category, Toast.LENGTH_LONG).show()
                 }, { error ->
-                    Toast.makeText(view.context, "Fail", Toast.LENGTH_LONG).show()
-                    Log.e("gfgf", error.message, error)
+                    Toast.makeText(view.context, R.string.fail_add_new_category, Toast.LENGTH_LONG).show()
+                    Logger.e(error)
                 })
     }
 }

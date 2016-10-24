@@ -18,4 +18,3 @@ interface ArticleCategoriesService {
     @Headers("Content-Type: application/xml")
     fun sendArticleCategory(@Body webArticleCategoryRequest: WebArticleCategoryRequest): Single<ResponseBody>
 }
-
