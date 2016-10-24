@@ -1,6 +1,6 @@
 package com.mgorski.articles.model
 
-import com.mgorski.articles.network.model.WebArticleCategory
+import com.mgorski.articles.network.model.WebArticleCategoryResponse
 
 class ArticleCategory(val name: String) {
 
@@ -8,4 +8,4 @@ class ArticleCategory(val name: String) {
             = name
 }
 
-fun WebArticleCategory.toArticleCategory() = ArticleCategory(Name)
+fun WebArticleCategoryResponse.toArticleCategory() = ArticleCategory(Name)

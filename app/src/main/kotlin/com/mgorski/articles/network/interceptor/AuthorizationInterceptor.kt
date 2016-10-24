@@ -9,7 +9,10 @@ class AuthorizationInterceptor : Interceptor {
     private val AUTHORIZATION_HEADER = "Authorization"
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request().newBuilder().addHeader(AUTHORIZATION_HEADER, BasicAuthHeaderGenerator.getValue(BuildConfig.API_USERNAME, BuildConfig.API_PASSWORD)).build()
+        val request = chain.request()
+                .newBuilder()
+                .header(AUTHORIZATION_HEADER, BasicAuthHeaderGenerator.getValue(BuildConfig.API_USERNAME, BuildConfig.API_PASSWORD))
+                .build()
         return chain.proceed(request)
     }
 }

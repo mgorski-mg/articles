@@ -36,7 +36,7 @@ android {
     }
     dataBinding {
         enabled = true
-        version = "2.2.0"
+        version = "2.2.2"
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -60,8 +60,13 @@ dependencies {
 
     compile "com.squareup.retrofit2:retrofit:$retrofit_version"
     compile "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    compile("com.squareup.retrofit2:converter-simplexml:$retrofit_version") {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile "com.squareup.okhttp3:logging-interceptor:3.2.0"
 
     compile "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
