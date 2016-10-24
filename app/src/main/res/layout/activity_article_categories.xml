@@ -33,7 +33,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="@{viewModel.categoryToAdd.length > 0}"
+                android:enabled="@{viewModel.categoryToAdd.length > 0 &amp;&amp; !viewModel.isLoading}"
                 android:onClick="@{viewModel::onAddClick}"
                 android:text="@string/add" />
         </LinearLayout>
